@@ -197,32 +197,182 @@ Caused by: java.lang.NoSuchFieldException: disableD3D9Ex
 
 ## Error 2: macOS verbose info
 
-macOS executable verbose info:
-
-```
-class javafx.application.Application
-class us.hebi.samples.gui.MinimalFxApp
-WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
-System.loadLibrary(prism_es2) succeeded
-JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
-WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
-System.loadLibrary(glass) succeeded
-WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
-System.loadLibrary(javafx_font) succeeded
-2025-03-03 09:14:17.188 native-executable[15061:15428417] +[IMKClient subclass]: chose IMKClient_Modern
-2025-03-03 09:14:17.189 native-executable[15061:15428417] +[IMKInputSession subclass]: chose IMKInputSession_Modern
-```
-
 macOS shared lib verbose info:
 
 ```
 class javafx.application.Application
 class us.hebi.samples.gui.MinimalFxApp
+Prism pipeline init order: es2 sw 
+Using Double Precision Marlin Rasterizer
+Using dirty region optimizations
+Not using texture mask for primitives
+Not forcing power of 2 sizes for textures
+Using hardware CLAMP_TO_ZERO mode
+Opting in for HiDPI pixel scaling
+Prism pipeline name = com.sun.prism.es2.ES2Pipeline
+Loading ES2 native library ... prism_es2
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(prism_es2) succeeded
+	succeeded.
+GLFactory using com.sun.prism.es2.MacGLFactory
+(X) Got class = class com.sun.prism.es2.ES2Pipeline
+Initialized prism pipeline: com.sun.prism.es2.ES2Pipeline
+JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(glass) succeeded
+```
+
+macOS executable verbose info:
+
+```
+class javafx.application.Application
+class us.hebi.samples.gui.MinimalFxApp
+Prism pipeline init order: es2 sw 
+Using Double Precision Marlin Rasterizer
+Using dirty region optimizations
+Not using texture mask for primitives
+Not forcing power of 2 sizes for textures
+Using hardware CLAMP_TO_ZERO mode
+Opting in for HiDPI pixel scaling
+Prism pipeline name = com.sun.prism.es2.ES2Pipeline
+Loading ES2 native library ... prism_es2
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(prism_es2) succeeded
+	succeeded.
+GLFactory using com.sun.prism.es2.MacGLFactory
+(X) Got class = class com.sun.prism.es2.ES2Pipeline
+Initialized prism pipeline: com.sun.prism.es2.ES2Pipeline
+JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(glass) succeeded
+Maximum supported texture size: 16384
+Maximum texture size clamped to 4096
+Non power of two texture support = true
+Maximum number of vertex attributes = 16
+Maximum number of uniform vertex components = 4096
+Maximum number of uniform fragment components = 4096
+Maximum number of varying components = 124
+Maximum number of texture units usable in a vertex shader = 16
+Maximum number of texture units usable in a fragment shader = 16
+Graphics Vendor: Apple
+       Renderer: Apple M1 Pro
+        Version: 2.1 Metal - 89.3
+ vsync: true vpipe: true
+QT.pauseTimer#(262865161722416): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865170078458): Pause Timer : DROP : Tapn
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(javafx_font) succeeded
+QT.pauseTimer#(262865178387708): Pause Timer : DROP : Tapn
+QT.postPulse@(262865186771666): TaPN
+QT.postPulse#(262865195092333): DROP : TaPN
+PC.removeDirtyScene:  scene: 1082975835 @ (-1,-1)
+PC.removeDirtyScene:  scene: 1082975835 @ (-1,-1)
+PC.removeDirtyScene:  scene: 1082975835 @ (-1,-1)
+PC.removeDirtyScene:  scene: 1082975835 @ (-1,-1)
+PC.addDirtyScene: 262865196670916 scene: 1082975835 @ (-1,-1)
+QT.postPulse#(262865203431416): DROP : TaPN
+QT.postPulse#(262865211755000): DROP : TaPN
+QT.postPulse#(262865220088416): DROP : TaPN
+QT.postPulse#(262865228430583): DROP : TaPN
+QT.postPulse#(262865236753583): DROP : TaPN
+QT.postPulse#(262865245118666): DROP : TaPN
+QT.postPulse#(262865253412208): DROP : TaPN
+PC.addDirtyScene: 262865254072000 scene: 1082975835 @ (-1,-1)
+PC.addDirtyScene: 262865255764458 scene: 1082975835 @ (500,500)
+PC.addDirtyScene: 262865260031958 scene: 1082975835 @ (500,500)
+QT.postPulse#(262865261290916): DROP : TaPN
+PC.addDirtyScene: 262865263056083 scene: 1082975835 @ (500,500)
+QT.postPulse#(262865270150625): DROP : TaPN
+PC.addDirtyScene: 262865270667875 scene: 1082975835 @ (500,500)
+PC.addDirtyScene: 262865270690083 scene: 1082975835 @ (500,500)
+PC.addDirtyScene: 262865270713708 scene: 1082975835 @ (500,500)
+QT.endPulse: 262865270724583
+ES2ResourceFactory: Prism - createStockShader: FillPgram_Color.frag
+new alphas with length = 12288
+ES2ResourceFactory: Prism - createStockShader: Texture_Color.frag
+ES2ResourceFactory: Prism - createStockShader: Texture_LinearGradient_PAD.frag
+ES2ResourceFactory: Prism - createStockShader: Solid_TextureRGB.frag
+QT.pauseTimer#(262865278406375): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865286321833): Pause Timer : DROP : Tapn
+QT.postPulse@(262865295141000): TaPN
+2025-03-03 14:48:40.075 native-executable[23419:15790494] +[IMKClient subclass]: chose IMKClient_Modern
+2025-03-03 14:48:40.075 native-executable[23419:15790494] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+QT.postPulse#(262865303421625): DROP : TaPN
+PC.addDirtyScene: 262865311375666 scene: 1082975835 @ (500,500)
+QT.endPulse: 262865311411333
+QT.postPulse@(262865311751125): TaPN
+QT.endPulse: 262865315862916
+QT.pauseTimer#(262865320092958): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865328460416): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865336758291): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865344170625): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865352502791): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865361841208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865370077833): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865378140208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865386785458): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865395080000): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865403414541): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865410837916): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865419158375): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865427495166): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865435827083): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865445170583): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865453407500): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865461753208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865470085500): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865478418875): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865486750250): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865495084416): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865503416291): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865511752250): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865520087250): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865528291166): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865535834541): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865545156583): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865553407083): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865560875208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262865570174000): Pausing Timer : Tapn
 WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
 System.loadLibrary(prism_es2) succeeded
 JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
 WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
-System.loadLibrary(glass) succeeded
+System.loadLibrary(glass) succeededQT.postPulse@(262868695195625): TaPN
+PC.addDirtyScene: 262868695642125 scene: 1082975835 @ (500,500)
+QT.endPulse: 262868695661083
+QT.postPulse@(262868703404875): TaPN
+QT.endPulse: 262868703508583
+QT.pauseTimer#(262868711750041): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868720066791): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868728410208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868736731041): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868745083791): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868753410208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868761734250): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868770077750): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868778413666): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868786730583): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868795071500): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868803397541): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868811732625): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868820064916): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868828401916): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868836730375): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868845068041): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868853394208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868861732291): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868870061625): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868878410708): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868886793708): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868895052208): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868903395500): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868911762625): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868920055958): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868928120958): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868936762375): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868945063125): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868953398666): Pause Timer : DROP : Tapn
+QT.pauseTimer#(262868961736416): Pausing Timer : Tapn
 ```
 
 ## Error 3: mvn error
