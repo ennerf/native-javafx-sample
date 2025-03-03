@@ -5,31 +5,28 @@ Minimum sample for testing native compilation for JavaFX
 Compile native-images via `mvn clean package -Pnative`. Note that GraalVM's native-image requires a local compiler being
 setup.
 
-# Native executables
+### Windows 10
 
-| NDK                                        | Windows 10         | Ubuntu 22.04 | macOS 15.3.1 |
-|--------------------------------------------|--------------------|--------------|--------------|
-| bellsoft-liberica-vm-full-openjdk21-23.1.0 | Yes                | ?            | ?            |
-| bellsoft-liberica-vm-full-openjdk22-24.0.2 | Yes                | ?            | ?            |
-| bellsoft-liberica-vm-full-openjdk23-24.1.2 | compiler error (1) | ?            | ?            |
+| GraalVM distribution                       | Native Executable  | Native Shared Library Launcher |
+|--------------------------------------------|--------------------|--------------------------------|
+| bellsoft-liberica-vm-full-openjdk21-23.1.0 | ok                 | ok                             |
+| bellsoft-liberica-vm-full-openjdk22-24.0.2 | ok                 | ok                             |
+| bellsoft-liberica-vm-full-openjdk23-24.1.2 | compiler error (1) | compiler error (1)             |
 
-# Native shared library launchers
+---
 
-| NDK                                        | Windows 10         | Ubuntu 22.04 | macOS 15.3.1 |
-|--------------------------------------------|--------------------|--------------|--------------|
-| bellsoft-liberica-vm-full-openjdk21-23.1.0 | Yes                | ?            | ?            |
-| bellsoft-liberica-vm-full-openjdk22-24.0.2 | Yes                | ?            | ?            |
-| bellsoft-liberica-vm-full-openjdk23-24.1.2 | compiler error (1) | ?            | ?            |
+### macOS 15.3.1
 
-
-
-
-
-
+| GraalVM distribution                       | Native Executable | Native Shared Library Launcher    |
+|--------------------------------------------|-------------------|-----------------------------------|
+| bellsoft-liberica-vm-full-openjdk17-23.0.7 | ok (x86?)         | stuck in init, no Stage shown (2) |
+| bellsoft-liberica-vm-full-openjdk21-23.1.6 | ok (aarch64)      | stuck in init, no Stage shown (2) |
+| bellsoft-liberica-vm-full-openjdk23-24.1.2 | ok (x86?)         | stuck in init, no Stage shown (2) |
 
 # Errors
 
-Windows error (1)
+## Error 1: Windows compiler error
+
 ```powershell
 Error: java.util.concurrent.ExecutionException: com.oracle.svm.util.ReflectionUtil$ReflectionUtilError: java.lang.NoSuchFieldException: disableD3D9Ex
 Caused by: java.util.concurrent.ExecutionException: com.oracle.svm.util.ReflectionUtil$ReflectionUtilError: java.lang.NoSuchFieldException: disableD3D9Ex
@@ -186,3 +183,35 @@ Caused by: java.lang.NoSuchFieldException: disableD3D9Ex
         at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
         at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
 ```
+
+## Error 2: macOS verbose info
+
+macOS executable verbose info:
+
+```
+class javafx.application.Application
+class us.hebi.samples.gui.MinimalFxApp
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(prism_es2) succeeded
+JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(glass) succeeded
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(javafx_font) succeeded
+2025-03-03 09:14:17.188 native-executable[15061:15428417] +[IMKClient subclass]: chose IMKClient_Modern
+2025-03-03 09:14:17.189 native-executable[15061:15428417] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+```
+
+macOS shared lib verbose info:
+
+```
+class javafx.application.Application
+class us.hebi.samples.gui.MinimalFxApp
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(prism_es2) succeeded
+JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
+WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
+System.loadLibrary(glass) succeeded
+```
+
+
