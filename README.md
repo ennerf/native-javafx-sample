@@ -5,6 +5,8 @@ Minimum sample for testing native compilation for JavaFX
 Compile native-images via `mvn clean package -Pnative`. Note that GraalVM's native-image requires a local compiler being
 setup.
 
+---
+
 ### Windows 10
 
 | GraalVM distribution                       | Native Executable  | Native Shared Library Launcher |
@@ -13,8 +15,6 @@ setup.
 | bellsoft-liberica-vm-full-openjdk22-24.0.2 | ok                 | ok                             |
 | bellsoft-liberica-vm-full-openjdk23-24.1.2 | compiler error (1) | compiler error (1)             |
 
----
-
 ### macOS 15.3.1
 
 | GraalVM distribution                       | Native Executable | Native Shared Library Launcher    |
@@ -22,6 +22,17 @@ setup.
 | bellsoft-liberica-vm-full-openjdk17-23.0.7 | ok (x86?)         | stuck in init, no Stage shown (2) |
 | bellsoft-liberica-vm-full-openjdk21-23.1.6 | ok (aarch64)      | stuck in init, no Stage shown (2) |
 | bellsoft-liberica-vm-full-openjdk23-24.1.2 | ok (x86?)         | stuck in init, no Stage shown (2) |
+
+### Ubuntu 20.04
+
+| GraalVM distribution                       | Native Executable | Native Shared Library Launcher    |
+|--------------------------------------------|-------------------|-----------------------------------|
+| bellsoft-liberica-vm-full-openjdk17-23.0.7 | ok                | ok                                |
+| bellsoft-liberica-vm-full-openjdk21-23.1.6 | ok                | ok                                |
+| bellsoft-liberica-vm-full-openjdk23-24.1.2 | mvn error (3)     | mvn error (3) |
+
+
+---
 
 # Errors
 
@@ -212,6 +223,12 @@ System.loadLibrary(prism_es2) succeeded
 JavaFX: using com.sun.javafx.tk.quantum.QuantumToolkit
 WARNING: java.lang.UnsatisfiedLinkError: Invalid URL for class: resource://javafx.graphics/com/sun/glass/utils/NativeLibLoader.class
 System.loadLibrary(glass) succeeded
+```
+
+## Error 3: mvn error
+
+```
+Error: could not open `toolchains/bellsoft-liberica-vm-full-openjdk23-24.1.2/lib/jvm.cfg'
 ```
 
 
