@@ -1,3 +1,7 @@
+# SOLVED
+
+The problem on macOS w/ shared libraries was that the Cocoa framework needs to be setup properly. The main event loop needs to run on the main thread before calling into any JavaFX code.
+
 # native-javafx-sample
 
 Minimum sample for testing native compilation for JavaFX
